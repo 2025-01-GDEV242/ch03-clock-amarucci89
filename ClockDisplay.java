@@ -98,7 +98,10 @@ public class ClockDisplay
     {
         hour -= 12; //Prevents hour value from increasing beyond 12.
     }
-
+    if(hour == 0) //Converts hour 0 to display as a value of 12.
+    {
+        hour = 12;
+    }
     displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue() + suffix;
     }
