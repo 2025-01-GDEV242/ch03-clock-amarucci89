@@ -94,6 +94,11 @@ public class ClockDisplay
     {
         suffix = "am";
     }
+    if(hour >= 12)
+    {
+        hour -= 12; //Prevents hour value from increasing beyond 12.
+    }
+
     displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue() + suffix;
     }
