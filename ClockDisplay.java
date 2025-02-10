@@ -1,4 +1,3 @@
-
 /**
  * 12 Hour Internal Branch
  * 
@@ -7,15 +6,15 @@
  * range of the clock is 12:00 am (midnight) to 11:59 pm (one minute before 
  * midnight).
  * 
- * This version rewquires the programmer to maintain an internal variable to
+ * This version requires the programmer to maintain an internal variable to
  * indicate if it is morning or night (am or pm).
  * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
  * 
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Alessandro Marucci
+ * @version 2025.02.10
  */
 public class ClockDisplay
 {
