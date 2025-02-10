@@ -83,7 +83,8 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
+    int hour = hours.getValue(); //Variable that stores current hour.
+    displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
     }
 }
