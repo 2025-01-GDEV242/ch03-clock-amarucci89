@@ -85,7 +85,16 @@ public class ClockDisplay
     {
     int hour = hours.getValue(); //Variable that stores current hour.
     String suffix; //Creates a new string variable that stores am/pm.
+    
+    if(hour >= 12) //Conditional statement that determines am or pm.
+    {
+        suffix = "pm";
+    }
+    else
+    {
+        suffix = "am";
+    }
     displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue() + suffix;
     }
 }
