@@ -84,6 +84,7 @@ public class ClockDisplay
     private void updateDisplay()
     {
     int hour = hours.getValue(); //Variable that stores current hour.
+    String suffix; //Creates a new string variable that stores am/pm.
     displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
     }
