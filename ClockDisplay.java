@@ -55,7 +55,12 @@ public class ClockDisplay
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
         }
+        
+        //if hours = 0
+        //{ am -> pm }
         updateDisplay();
+        
+        // value = (value + 1) % limit;
     }
 
     /**
@@ -83,15 +88,15 @@ public class ClockDisplay
     private void updateDisplay()
     {
     int hour = hours.getValue(); //Variable that stores current hour.
-    String suffix; //Creates a new string variable that stores am/pm.
+    String meridian; //Creates a new string variable that stores am/pm.
     
     if(hour >= 12) //Conditional statement that determines am or pm.
     {
-        suffix = "pm";
+        meridian = "pm";
     }
     else
     {
-        suffix = "am";
+        meridian = "am";
     }
     if(hour >= 12)
     {
@@ -102,6 +107,8 @@ public class ClockDisplay
         hour = 12;
     }
     displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue() + suffix;
+                        minutes.getDisplayValue() + meridian;
+                        
+    //
     }
 }
