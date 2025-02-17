@@ -21,6 +21,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
+    private String meridian; //Creates a new string variable that stores am/pm.
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -56,8 +57,15 @@ public class ClockDisplay
             hours.increment();
         }
         
-        //if hours = 0
-        //{ am -> pm }
+        //if (hours = 0)
+        // {
+        //  meridian = "am"
+        // }
+        //else
+        // {
+        // meridian = "pm"
+        // }
+        
         updateDisplay();
         
         // value = (value + 1) % limit;
@@ -88,7 +96,6 @@ public class ClockDisplay
     private void updateDisplay()
     {
     int hour = hours.getValue(); //Variable that stores current hour.
-    String meridian; //Creates a new string variable that stores am/pm.
     
     if(hour >= 12) //Conditional statement that determines am or pm.
     {
