@@ -22,6 +22,8 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
+    private String meridian;
+    private int currentHour;
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
@@ -29,8 +31,9 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
+        this.meridian = new String("am");
         updateDisplay();
     }
 
@@ -39,10 +42,11 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, String meridian)
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
+        this.meridian = new String();
         setTime(hour, minute);
     }
 
@@ -53,8 +57,20 @@ public class ClockDisplay
     public void timeTick()
     {
         minutes.increment();
-        if(minutes.getValue() == 0) {  // it just rolled over!
+        if(minutes.getValue() == 0) // it just rolled over!
+        {
             hours.increment();
+        }
+        if(hours.getValue() == 0)
+        {
+            if (meridian.equals ("am"));
+            {
+            meridian = "pm";
+            }
+        }
+        else
+        {
+            meridian = "am";
         }
         updateDisplay();
     }
@@ -67,6 +83,7 @@ public class ClockDisplay
     {
         hours.setValue(hour);
         minutes.setValue(minute);
+
         updateDisplay();
     }
 
@@ -83,7 +100,20 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+        // currentHour = hours.getValue();
+        // meridian = "am";
+
+        // if (currentHour > 11)
+        // {
+            // currentHour = currentHour - 12;
+            // meridian = "pm";
+        // }
+        if (currentHour == 0)
+        {
+            currentHour = 12;
+            //meridian = "pm";
+        }
+        
+        displayString = currentHour + ":" + minutes.getDisplayValue() + " " + meridian;
     }
 }
