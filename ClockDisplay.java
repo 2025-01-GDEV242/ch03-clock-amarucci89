@@ -57,6 +57,9 @@ public class ClockDisplay
             hours.increment();
         }
         
+        //if (hours.getValue() == 12
+        
+        
         //if (hours = 0)
         // {
         //  meridian = "am"
@@ -96,26 +99,23 @@ public class ClockDisplay
     private void updateDisplay()
     {
     int hour = hours.getValue(); //Variable that stores current hour.
-    
-    if(hour >= 12) //Conditional statement that determines am or pm.
-    {
-        meridian = "pm";
-    }
-    else
-    {
-        meridian = "am";
-    }
+    //if(hour >= 12) //Conditional statement that determines am or pm.
+    //{
+    //    meridian = "pm";
+    //}
+    //else
+    //{
+    //    meridian = "am";
+    //}
     if(hour >= 12)
     {
-        hour -= 12; //Prevents hour value from increasing beyond 12.
+        hour = hour - 12;
+        meridian = "pm"; //Prevents hour value from increasing beyond 12.
     }
     if(hour == 0) //Converts hour 0 to display as a value of 12.
     {
         hour = 12;
     }
-    displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue() + meridian;
-                        
-    //
+    displayString = hour + ":" + minutes.getDisplayValue() + meridian;
     }
 }
