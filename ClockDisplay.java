@@ -1,6 +1,6 @@
 
 /**
- * 24 Hour Internal Branch
+ * 12 Hour Internal Branch
  * 
  * The ClockDisplay class implements a digital clock display for a
  * US-style 12-hour hour clock. The clock shows hours and minutes. The 
@@ -14,8 +14,8 @@
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
  * 
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Alessandro Marucci
+ * @version 2025.02.17
  */
 public class ClockDisplay
 {
