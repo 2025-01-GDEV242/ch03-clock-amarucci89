@@ -22,7 +22,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
-    private String meridian;
+    private String meridian = "am";
     private int currentHour;
     
     /**
@@ -46,7 +46,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        this.meridian = new String();
+        this.meridian = new String("am");
         setTime(hour, minute);
     }
 
@@ -63,7 +63,8 @@ public class ClockDisplay
         }
         if(hours.getValue() == 0)
         {
-            if (meridian.equals ("am"));
+            //if (meridian.equals ("am"));
+            if (meridian == "am");
             {
             meridian = "pm";
             }
@@ -100,14 +101,14 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        // currentHour = hours.getValue();
-        // meridian = "am";
+        currentHour = hours.getValue();
+        //meridian = "am";
 
-        // if (currentHour > 11)
-        // {
-            // currentHour = currentHour - 12;
-            // meridian = "pm";
-        // }
+        if (currentHour > 11)
+        {
+            currentHour = currentHour - 12;
+            meridian = "pm";
+        }
         if (currentHour == 0)
         {
             currentHour = 12;
